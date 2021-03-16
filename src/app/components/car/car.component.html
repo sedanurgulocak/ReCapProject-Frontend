@@ -11,11 +11,11 @@
             <th>Daily Price</th>
         </tr>
     </thead>
-    <tr *ngFor="let carDetail of carDetails">
-        <td>{{carDetail.id}}</td> 
-        <td>{{carDetail.brandName}}</td>
-        <td>{{carDetail.colorName}}</td>
-        <td>{{carDetail.descriptions}}</td>
-        <td>{{carDetail.dailyPrice}}</td>
+    <tr *ngFor="let car of carDetails">
+        <td>{{car.id}}</td> 
+        <td>{{car.brandName}}</td>
+        <td>{{car.colorName}}</td>
+        <td>{{car.descriptions}}</td>
+        <td>{{car.dailyPrice}}</td>
     </tr>
 </table>
