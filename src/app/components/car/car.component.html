@@ -9,6 +9,7 @@
             <th>Color</th>
             <th>Descriptions</th>
             <th>Daily Price</th>
+            <th></th>
         </tr>
     </thead>
     <tr *ngFor="let car of carDetails">
@@ -17,5 +18,16 @@
         <td>{{car.colorName}}</td>
         <td>{{car.descriptions}}</td>
         <td>{{car.dailyPrice}}</td>
+        <td>
+            <div class="card-body">
+                <section style="float:left">
+                    <button routerLink="/car/getcardetaildtos/{{car.id}}" type="button" class="btn btn-primary">Details</button>
+                  </section>
+                  <section style="float: right">
+                    <button type="button" class="btn btn-primary">Rent</button>
+                  </section>
+            </div>
+        </td>
     </tr>
+
 </table>
