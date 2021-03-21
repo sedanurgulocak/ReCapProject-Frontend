@@ -1,1 +1,18 @@
-<p>car-detail works!</p>
+<div class="row">
+    <div class="card" *ngFor="let car of carDetails" style="width: 18rem">
+        <div *ngFor="let image of carImages">
+            <img class="img-fluid" src="{{path}}{{image.imagePath}}" />
+        </div>
+        <div class="card-body">
+            <h6 class="card-title">Car Id: {{car.id}}</h6>
+            <h6 class="card-title">Brand: {{car.brandName}}</h6>
+            <h6 class="card-title">Model Year: {{car.modelYear}}</h6>
+            <h6 class="card-title">Color: {{car.colorName}}</h6>
+            <h6 class="card-title">Daily Price: {{car.dailyPrice}}</h6>
+            <h6 class="card-text">Descriptions: {{car.descriptions}}</h6>
+            
+        </div>
+
+    </div>
+</div>
+
