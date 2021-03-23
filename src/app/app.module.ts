@@ -13,6 +13,7 @@ import { RentalComponent } from './components/rental/rental.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { VatAddedPipe } from './pipes/vat-added.pipe';
     RentalComponent,
     NaviComponent,
     CarDetailComponent,
-    VatAddedPipe
+    VatAddedPipe,
+    FilterPipePipe
   ],
   imports: [
     BrowserModule,
