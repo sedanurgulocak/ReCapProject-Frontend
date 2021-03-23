@@ -17,7 +17,7 @@
         <td>{{car.brandName}}</td>
         <td>{{car.colorName}}</td>
         <td>{{car.descriptions}}</td>
-        <td>{{car.dailyPrice}}</td>
+        <td>{{car.dailyPrice | vatAdded:5 | currency }}</td>
         <td>
             <div class="card-body">
                 <section style="float:left">
