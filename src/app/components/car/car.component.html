@@ -12,7 +12,8 @@
             <th></th>
         </tr>
     </thead>
-    <tr *ngFor="let car of carDetails">
+    <tbody>
+      <tr *ngFor="let car of carDetails">
         <td>{{car.id}}</td> 
         <td>{{car.brandName}}</td>
         <td>{{car.colorName}}</td>
@@ -27,5 +28,7 @@
             </div>
         </td>
     </tr>
+    </tbody>
+    
 
 </table>
