@@ -10,4 +10,5 @@ export interface CarDetailDto{
     carImageDate:Date;
     imagePath:string[];
     carImages:CarImage[];
+    status:boolean;
 }
