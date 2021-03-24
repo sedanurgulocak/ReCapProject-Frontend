@@ -11,14 +11,16 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class CarFilterComponent implements OnInit {
 
-  constructor( private brandService:BrandService, private colorService: ColorService) { }
-
   brands: Brand[] = [];
   colors: Color[] = [];
   brandFilter: number;
   colorFilter: number;
 
+  constructor( private brandService:BrandService, private colorService: ColorService) { }
+
   ngOnInit(): void {
+    this.getBrands();
+    this.getColors();
   }
 
   getBrands(){
