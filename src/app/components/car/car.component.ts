@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarDetailDto } from 'src/app/models/carDetailDto';
 import { CarService } from 'src/app/services/car.service';
@@ -14,11 +15,14 @@ export class CarComponent implements OnInit {
   carDetails:CarDetailDto[] = []
   dataLoaded = false;
   
-  constructor(private carService:CarService, private activatedRoute:ActivatedRoute) { }
+  constructor(private carService:CarService, private activatedRoute:ActivatedRoute, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-      if(params["brandId"]){
+      if(params["brandId"] && params["colorId"]){
+        this.getCarByFilter(params["brandId"],params["colorId"])
+      }
+      else if(params["brandId"]){
         this.getCarsByBrand(params["brandId"])
       }
       else if(params["colorId"]){
@@ -38,6 +42,16 @@ export class CarComponent implements OnInit {
     this.carService.getCars().subscribe(response => {
       this.carDetails=response.data
       this.dataLoaded = true;
+    })
+  }
+
+  getCarByFilter(brandId:number, colorId:number){
+    this.carService.getCarsByBrandIdAndColorId(brandId, colorId).subscribe(response => {
+      this.carDetails = response.data,
+      this.dataLoaded = true
+      if(this.carDetails.length == 0){
+        this.toastr.info('No cars found');
+      }
     })
   }
 
