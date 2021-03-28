@@ -1,6 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Car } from 'src/app/models/car';
+import { CarDetailDto } from 'src/app/models/carDetailDto';
 import { Rental } from 'src/app/models/rental';
 import { RentalDetailDto } from 'src/app/models/rentalDetailDto';
+import { ResponseModel } from 'src/app/models/responseModel';
+import { CarService } from 'src/app/services/car.service';
+import { CustomerService } from 'src/app/services/customer.service';
 import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
@@ -10,19 +18,68 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class RentalComponent implements OnInit {
 
-  rentals:RentalDetailDto[]=[];
-  dataLoaded=false;
+  rentalAddForm : FormGroup;
+   carId:number;
+   carDetails: CarDetailDto[]=[];
 
-  constructor(private rentalService:RentalService) { }
+  constructor(private rentalService:RentalService, private carService:CarService, private customerService: CustomerService, private activatedRoute:ActivatedRoute, private formBuilder:FormBuilder, private toastrService:ToastrService) { }
 
   ngOnInit(): void {
-    this.getRentals();
+     this.activatedRoute.params.subscribe(params => {
+       if(params ["carId"]){
+         this.carId = parseInt(params["carId"]);
+         this.getActiveCarDetail(params["carId"]);
+       }
+     })
+    this.createRentalAddForm();
+    
   }
 
-  getRentals(){
-    this.rentalService.getRentals().subscribe(response => {
-      this.rentals=response.data;
-      this.dataLoaded=true;
+   getActiveCarDetail(carId: number){
+     debugger;
+     this.carService.getSingleCar(carId).subscribe((response) => {
+       this.carDetails = response.data;
+       console.log(this.carDetails);
+     });
+   }
+
+  createRentalAddForm(){
+    this.rentalAddForm = this.formBuilder.group({
+      customerId: ['', Validators.required],
+      rentDate: ['', Validators.required],
+      returnDate: ['', Validators.required]
     })
   }
+
+  add(){
+    if(this.rentalAddForm.valid){
+      this.activatedRoute.params.subscribe(params => {
+        if(params ["carId"]){
+          this.carId = parseInt(params["carId"]);
+        }
+      })
+      let rentalModel = Object.assign({}, this.rentalAddForm.value)
+      this.rentalService.add(rentalModel,this.carId).subscribe(response =>{
+        this.toastrService.success(response.message);
+        }, responseError => {
+          this.toastrService.error(responseError.error.message);
+      })
+    }else{
+      this.toastrService.error("Formunuz eksik");
+    }
+  }
+
+  // getRentals(){
+  //   this.rentalService.getRentals().subscribe(response => {
+  //     this.rentals=response.data;
+  //     this.dataLoaded=true;
+  //   })
+  // }
+
+  //  getRentalBycarId(carId:number){
+  //    this.rentalService.getRentalDetailByCarId(carId).subscribe(response => {
+  //      this.rentals = response.data;
+  //      this.dataLoaded = true;
+  //    })
+  //  }
 }
