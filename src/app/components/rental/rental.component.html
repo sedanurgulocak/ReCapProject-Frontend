@@ -1,25 +1,42 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-dark" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-<table *ngIf="dataLoaded==true" class="table">
-    <thead>
-        <tr>
-            <th>Rental Id</th>
-            <th>Brand</th>
-            <th>Car Description</th>
-            <th>Customer</th>
-            <th>Company Name</th>
-            <th>Rent Date</th>
-            <th>Return Date</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let rental of rentals">
-        <td>{{rental.id}}</td> 
-        <td>{{rental.brandName}}</td>
-        <td>{{rental.carDescription}}</td>
-        <td>{{rental.firstName + " " + rental.lastName}}</td>
-        <td>{{rental.companyName}}</td>
-        <td>{{rental.rentDate}}</td>
-        <td>{{rental.returnDate}}</td>
-    </tr>
-</table>
+
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Rental Car</h5></div>
+            <div class="card-body">
+                <form [formGroup]="rentalAddForm">
+                    
+                    <div class="mb-3">
+                        <label for="customerId">Customer Id</label>
+                        <div class="form-group">
+                            <input type="number" id="customerId" formControlName="customerId" class="form-control" placeholder="Customer"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="rentDate">Rent Date</label>
+                        <div class="form-group">
+                            <input type="date" id="rentDate" formControlName="rentDate" class="form-control" placeholder="Rent Date"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="returnDate">Return Date</label>
+                      <div class="form-group">
+                          <input type="date" id="returnDate" formControlName="returnDate" class="form-control" placeholder="Return Date"/>
+                      </div>
+                    </div>
+                    
+                    
+                </form>
+                
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">Rent</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
