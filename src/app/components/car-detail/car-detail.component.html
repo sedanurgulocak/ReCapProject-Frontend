@@ -32,15 +32,20 @@
             <h6 class="card-title">Color: {{car.colorName}}</h6>
             <h6 class="card-title">Daily Price: {{car.dailyPrice}}</h6>
             <h6 class="card-text">Descriptions: {{car.descriptions}}</h6>
-
             <h6>
               <div class="card-body">
-                  <section style="float:left">
-                      <button routerLink="/cars/rental/{{car.id}}" type="button"  class="btn btn-primary">Rental</button>
-                    </section>
-              </div>
+                <section style="float:left">
+                    <button routerLink="/rental/{{car.id}}" type="button"  class="btn btn-primary">RENTAL
+                    </button>
+                  </section>
+                  
+            </div>
             </h6>
             
+        </div>
+
+        <div>
+          
         </div>
 
     </div>
