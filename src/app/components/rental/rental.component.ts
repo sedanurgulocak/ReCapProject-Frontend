@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarDetailDto } from 'src/app/models/carDetailDto';
+import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
 import { RentalDetailDto } from 'src/app/models/rentalDetailDto';
 import { ResponseModel } from 'src/app/models/responseModel';
@@ -18,11 +19,20 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class RentalComponent implements OnInit {
 
-  rentalAddForm : FormGroup;
+   rentalAddForm : FormGroup;
    carId:number;
    carDetails: CarDetailDto[]=[];
+   customers: Customer[]=[];
+   companyName: string;
+   customerId: number;
 
-  constructor(private rentalService:RentalService, private carService:CarService, private customerService: CustomerService, private activatedRoute:ActivatedRoute, private formBuilder:FormBuilder, private toastrService:ToastrService) { }
+  constructor(
+    private rentalService:RentalService, 
+    private carService:CarService, 
+    private customerService:CustomerService, 
+    private activatedRoute:ActivatedRoute, 
+    private formBuilder:FormBuilder, 
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
      this.activatedRoute.params.subscribe(params => {
@@ -31,12 +41,21 @@ export class RentalComponent implements OnInit {
          this.getActiveCarDetail(params["carId"]);
        }
      })
+     this.getCustomers();
     this.createRentalAddForm();
+
     
   }
 
-   getActiveCarDetail(carId: number){
-     debugger;
+  getCustomers(){
+    debugger;
+    this.customerService.getCustomers().subscribe(response => {
+      this.customers = response.data;
+      console.log(response.data);
+    });
+  }
+
+  getActiveCarDetail(carId: number){
      this.carService.getSingleCar(carId).subscribe((response) => {
        this.carDetails = response.data;
        console.log(this.carDetails);
