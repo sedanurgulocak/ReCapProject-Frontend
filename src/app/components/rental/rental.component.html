@@ -5,13 +5,13 @@
             <div class="card-header"><h5 class="title">Rental Car</h5></div>
             <div class="card-body">
                 <form [formGroup]="rentalAddForm">
-                    
+
                     <div class="mb-3">
-                        <label for="customerId">Customer Id</label>
-                        <div class="form-group">
-                            <input type="number" id="customerId" formControlName="customerId" class="form-control" placeholder="Customer"/>
-                        </div>
-                    </div>
+                        <label for="customerId">Customers</label>
+                        <select class="form-control" formControlName="customerId">
+                            <option *ngFor="let customer of customers" [ngValue]="customer.customerId" >{{customer.companyName}}</option>
+                          </select>
+                    </div> 
 
                     <div class="mb-3">
                         <label for="rentDate">Rent Date</label>
@@ -26,7 +26,7 @@
                           <input type="date" id="returnDate" formControlName="returnDate" class="form-control" placeholder="Return Date"/>
                       </div>
                     </div>
-                    
+              
                     
                 </form>
                 
