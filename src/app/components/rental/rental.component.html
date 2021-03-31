@@ -26,9 +26,54 @@
                           <input type="date" id="returnDate" formControlName="returnDate" class="form-control" placeholder="Return Date"/>
                       </div>
                     </div>
-              
+
+                    <label for="payment"> Daily Price</label>
+                    <div>
+                        <h6 id="payment" *ngFor="let car of carDetails">{{car.dailyPrice}}</h6>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="nameOnTheCard">Name on the card</label>
+                        <div class="form-group">
+                            <input type="text" id="nameOnTheCard" formControlName="nameOnTheCard" class="form-control" placeholder="Card Name"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cardNumber">Credit Card Number</label>
+                        <div class="form-group">
+                            <input type="text" id="cardNumber" formControlName="cardNumber" class="form-control" placeholder="Card Number"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="col-md-2">
+                            <label for="expirationDate">Expiration Date</label> 
+                            <div class="form-group">
+                            <input type="text" id="expirationDate" formControlName="expirationDate" class="form-control" placeholder="Expiration Date"/>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="cvc">CVC</label>
+                            <div class="form-group">
+                            <input type="text" id="cvv" formControlName="cvv" class="form-control" placeholder="CVV"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="col-md-2">
+                            <label for="amountPay">Amount Of Payment</label> 
+                            <div class="form-group">
+                            <input type="number" id="amountPay" formControlName="amountPay" class="form-control" placeholder="Amount Pay"/>
+                            </div>
+                        </div>
+                    </div>
                     
                 </form>
+
+                <div>
+                    
+                </div>
                 
             </div>
             <div class="card-footer">
