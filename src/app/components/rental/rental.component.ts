@@ -10,6 +10,7 @@ import { RentalDetailDto } from 'src/app/models/rentalDetailDto';
 import { ResponseModel } from 'src/app/models/responseModel';
 import { CarService } from 'src/app/services/car.service';
 import { CustomerService } from 'src/app/services/customer.service';
+import { PaymentService } from 'src/app/services/payment.service';
 import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
@@ -32,7 +33,8 @@ export class RentalComponent implements OnInit {
     private customerService:CustomerService, 
     private activatedRoute:ActivatedRoute, 
     private formBuilder:FormBuilder, 
-    private toastrService:ToastrService) { }
+    private toastrService:ToastrService,
+    private paymentService:PaymentService) { }
 
   ngOnInit(): void {
      this.activatedRoute.params.subscribe(params => {
@@ -43,7 +45,6 @@ export class RentalComponent implements OnInit {
      })
      this.getCustomers();
     this.createRentalAddForm();
-
     
   }
 
@@ -58,6 +59,7 @@ export class RentalComponent implements OnInit {
   getActiveCarDetail(carId: number){
      this.carService.getSingleCar(carId).subscribe((response) => {
        this.carDetails = response.data;
+       debugger;
        console.log(this.carDetails);
      });
    }
@@ -66,7 +68,12 @@ export class RentalComponent implements OnInit {
     this.rentalAddForm = this.formBuilder.group({
       customerId: ['', Validators.required],
       rentDate: ['', Validators.required],
-      returnDate: ['', Validators.required]
+      returnDate: ['', Validators.required],
+      amountPay:['',Validators.required],
+      cvv : ['',Validators.required],
+      expirationDate:['',Validators.required],
+      cardNumber:['',Validators.required],
+      nameOnTheCard:['',Validators.required]
     })
   }
 
@@ -78,13 +85,22 @@ export class RentalComponent implements OnInit {
         }
       })
       let rentalModel = Object.assign({}, this.rentalAddForm.value)
-      this.rentalService.add(rentalModel,this.carId).subscribe(response =>{
-        this.toastrService.success(response.message);
-        }, responseError => {
-          this.toastrService.error(responseError.error.message);
-      })
+      this.paymentService.pay(rentalModel, this.carId).subscribe(response=>{
+        if(response.success==true){
+          this.rentalService.add(rentalModel,this.carId).subscribe(response =>{
+            this.toastrService.success(response.message);
+            }, responseError => {
+              this.toastrService.error(responseError.error.message);
+          })
+        }else{
+          this.toastrService.error("The rental failed")
+        }
+        
+      }, responseError=>{
+        this.toastrService.error("Payment could not be made")
+      });
     }else{
-      this.toastrService.error("Formunuz eksik");
+      this.toastrService.error("Your form is incomplete");
     }
   }
 
