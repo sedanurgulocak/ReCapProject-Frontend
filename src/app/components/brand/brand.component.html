@@ -1,4 +1,6 @@
 <ul class="list-group">
+    <li routerLink="/brands/getall" class="btn btn-secondary">BRAND LIST</li>
+    
     <li (click)="removeCurrentBrand()" routerLink="/cars" [class]="getAllBrandClass()" class="list-group-item active">BRANDS</li>
 
     <li (click)="setCurrentBrand(brand)" 
@@ -6,6 +8,7 @@
     *ngFor="let brand of brands" 
     [class]="getCurrentBrandClass(brand)">
     {{brand.brandName}}</li>
+
     
 </ul>
   
