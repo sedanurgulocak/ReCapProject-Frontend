@@ -20,7 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { CarFilterComponent } from './components/car-filter/car-filter.component';
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
-import { CarAddComponent } from './components/car-add/car-add.component'
+import { CarAddComponent } from './components/car-add/car-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component'
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CarAddComponent } from './components/car-add/car-add.component'
     CarFilterComponent,
     BrandFilterPipe,
     ColorFilterPipe,
-    CarAddComponent
+    CarAddComponent,
+    BrandAddComponent
   ],
   imports: [
     BrowserModule,
