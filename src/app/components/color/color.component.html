@@ -2,6 +2,9 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 <ul class="list-group">
+
+  <li routerLink="/colors/getall" class="btn btn-secondary">COLOR LIST</li>
+
   <li (click)="removeCurrentColor()" routerLink="/cars" [class]="getAllColorClass()" class="list-group-item active">COLORS</li>
 
   <li (click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}"
