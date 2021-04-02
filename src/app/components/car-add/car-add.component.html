@@ -1,1 +1,50 @@
-<p>car-add works!</p>
+<div class="content">
+    <div class="col-md-12">
+        <div class="card-header">
+            <div class="card-header"><h5 class="title">Car Add</h5></div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                    <div class="mb-3">
+                        <label for="brandId">Brand Id</label>
+                        <div class="form-group">
+                            <input type="number" id="brandId" formControlName="brandId" class="form-control" placeholder="Brand Id"/>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="colorId">Color Id</label>
+                        <div class="form-group">
+                            <input type="number" id="colorId" formControlName="colorId" class="form-control" placeholder="Color Id"/>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="modelYear">Model Year</label>
+                        <div class="form-group">
+                            <input type="text" id="modelYear" formControlName="modelYear" class="form-control" placeholder="Model Year"/>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="dailyPrice">Daily Price</label>
+                        <div class="form-group">
+                            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="Daily Price"/>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="descriptions">Descriptions</label>
+                        <div class="form-group">
+                            <input type="text" id="descriptions" formControlName="descriptions" class="form-control" placeholder="Descriptions"/>
+                        </div>
+                    </div>
+                    
+                </form>
+
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
