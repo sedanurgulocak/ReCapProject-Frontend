@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms"
+import { ToastrService } from 'ngx-toastr';
+import { CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-car-add',
@@ -7,9 +10,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarAddComponent implements OnInit {
 
-  constructor() { }
+  carAddForm : FormGroup;
+  constructor(private formBuilder:FormBuilder, private carService:CarService, private toastrService:ToastrService) { }
 
   ngOnInit(): void {
+    this.createCarAddForm();
+  }
+
+  createCarAddForm(){
+    this.carAddForm = this.formBuilder.group({
+      brandId:["", Validators.required],
+      colorId:["", Validators.required],
+      modelYear:["", Validators.required],
+      dailyPrice:["", Validators.required],
+      descriptions:["", Validators.required]
+    })
+
+  }
+
+  add(){
+    if(this.carAddForm.valid){
+      let carModel = Object.assign({},this.carAddForm.value) 
+      this.carService.add(carModel).subscribe(response =>{
+        this.toastrService.success(response.message, "Successful")
+      }, responseError=>{
+        if(responseError.error.ValidationErrors.length>0){
+          for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+            this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, "Validation error")
+          }
+          
+        }
+      })
+      
+    }else{
+      this.toastrService.error("Your form is incomplete")
+    }
+    
   }
 
 }
