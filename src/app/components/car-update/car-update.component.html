@@ -1,1 +1,79 @@
-<p>car-update works!</p>
+<div class="content">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Brand Id</th>
+                <th>Color Id</th>
+                <th>Model Year</th>
+                <th>Daily Price</th>
+                <th>Descriptions</th>
+            </tr>
+        </thead>
+        <tr *ngIf="car">
+            <td>{{car.id}}</td> 
+            <td>{{car.brandId}}</td>
+            <td>{{car.colorId}}</td>
+            <td>{{car.modelYear}}</td> 
+            <td>{{car.dailyPrice}}</td> 
+            <td>{{car.descriptions}}</td> 
+        </tr>
+    
+    </table>
+
+    <div class="col-md-12">
+        <div class="card-header">
+            <div class="card-header"><h5 class="title">Car Update</h5></div>
+            <div class="card-body">
+                <form [formGroup]="carUpdateForm">
+                    <div class="mb-3">
+                        <label for="id">Id</label>
+                        <div class="form-group">
+                            <input type="number" id="id" formControlName="id" class="form-control" placeholder="Id"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="brandId">Brand Id</label>
+                        <div class="form-group">
+                            <input type="number" id="brandId" formControlName="brandId" class="form-control" placeholder="Brand Id"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="colorId">Color Id</label>
+                        <div class="form-group">
+                            <input type="number" id="colorId" formControlName="colorId" class="form-control" placeholder="Color Id"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id">Model Year</label>
+                        <div class="form-group">
+                            <input type="text" id="modelYear" formControlName="modelYear" class="form-control" placeholder="modelYear"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id">Daily Price</label>
+                        <div class="form-group">
+                            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="dailyPrice"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id">Descriptions</label>
+                        <div class="form-group">
+                            <input type="text" id="descriptions" formControlName="descriptions" class="form-control" placeholder="descriptions"/>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-warning" (click)="update()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
