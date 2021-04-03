@@ -4,13 +4,11 @@
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
-            <th>Color Id</th>
             <th>Color Name</th>
         </tr>
     </thead>
     <tr *ngFor="let color of colors">
-        <td>{{color.colorId}}</td> 
         <td>{{color.colorName}}</td>
-        <td><button type="button" class="btn btn-outline-warning">Update</button></td>
+        <td><button type="button" routerLink="/colors/getColorDetail/{{color.colorId}}" class="btn btn-outline-warning">Update</button></td>
     </tr>
 </table>
