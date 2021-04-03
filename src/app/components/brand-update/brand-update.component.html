@@ -1,1 +1,43 @@
-<p>brand-update works!</p>
+
+<div class="content">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Brand Id</th>
+                <th>Brand Name</th>
+            </tr>
+        </thead>
+        <tr *ngIf="brand">
+            <td>{{brand.brandId}}</td> 
+            <td>{{brand.brandName}}</td>
+        </tr>
+    
+    </table>
+
+    <div class="col-md-12">
+        <div class="card-header">
+            <div class="card-header"><h5 class="title">Brand Update</h5></div>
+            <div class="card-body">
+                <form [formGroup]="brandUpdateForm">
+                    <div class="mb-3">
+                        <label for="brandId">Brand Id</label>
+                        <div class="form-group">
+                            <input type="number" id="brandId" formControlName="brandId" class="form-control" placeholder="Brand Id"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="brandName">Brand Name</label>
+                        <div class="form-group">
+                            <input type="text" id="brandName" formControlName="brandName" class="form-control" placeholder="Brand Name"/>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-warning" (click)="update()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
