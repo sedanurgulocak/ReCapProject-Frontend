@@ -6,6 +6,7 @@ import { BrandUpdateComponent } from './components/brand-update/brand-update.com
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { CarListComponent } from './components/car-list/car-list.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { CarComponent } from './components/car/car.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path:"colors/getall", component:ColorListComponent},
   {path:"cars/getall", component:CarListComponent},
   {path:"brands/getBrandDetail/:brandId", component:BrandUpdateComponent},
-  {path:"colors/getColorDetail/:colorId", component:ColorUpdateComponent}
+  {path:"colors/getColorDetail/:colorId", component:ColorUpdateComponent},
+  {path:"cars/getSingleCarDetail/:carId", component:CarUpdateComponent}
 
 
 ];
