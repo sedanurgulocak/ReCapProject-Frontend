@@ -4,12 +4,10 @@
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
-            <th>Brand Id</th>
             <th>Brand Name</th>
         </tr>
     </thead>
     <tr *ngFor="let brand of brands">
-        <td>{{brand.brandId}}</td> 
         <td>{{brand.brandName}}</td>
         <td><button type="button" routerLink="/brands/getBrandDetail/{{brand.brandId}}" class="btn btn-outline-warning">Update</button></td>
     </tr>
