@@ -27,4 +27,8 @@ export class BrandService {
     let newPath = this.apiUrl + "/brands/getbyid?id=" + brandId
     return this.httpClient.get<SingleResponseModel<Brand>>(newPath);
   }
+
+  update(brand:Brand):Observable<SingleResponseModel<Brand>>{
+    return this.httpClient.post<SingleResponseModel<Brand>>(this.apiUrl+"/brands/update", brand);
+  }
 }
