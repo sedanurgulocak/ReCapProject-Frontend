@@ -9,6 +9,7 @@ import { CarListComponent } from './components/car-list/car-list.component';
 import { CarComponent } from './components/car/car.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { RentalComponent } from './components/rental/rental.component';
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:"brands/getall", component:BrandListComponent},
   {path:"colors/getall", component:ColorListComponent},
   {path:"cars/getall", component:CarListComponent},
-  {path:"brands/getBrandDetail/:brandId", component:BrandUpdateComponent}
+  {path:"brands/getBrandDetail/:brandId", component:BrandUpdateComponent},
+  {path:"colors/getColorDetail/:colorId", component:ColorUpdateComponent}
 
 
 ];
