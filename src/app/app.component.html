@@ -4,7 +4,10 @@
         <div class="col-md-3">
             <app-brand></app-brand>
             <app-color></app-color>
-            <button type="button" class="btn btn-primary">CAR  LIST</button>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="button" routerLink="/cars/getall" class="btn btn-primary">CAR  LIST</button>
+            </div>
+            
         </div>
         <div class="col-md-9">
             <router-outlet></router-outlet>
