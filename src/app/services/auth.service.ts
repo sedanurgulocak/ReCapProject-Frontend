@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginModel } from '../models/loginModel';
+import { RegisterModel } from '../models/registerModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 
@@ -14,8 +15,12 @@ export class AuthService {
 
   constructor(private httpClient:HttpClient) { }
 
+  register(registerModel:RegisterModel){
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + "register", registerModel)
+  }
+
   login(loginModel:LoginModel):Observable<SingleResponseModel<TokenModel>>{
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login", loginModel);
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login", loginModel)
   }
 
   isAuthenticated(){
