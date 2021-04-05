@@ -1,1 +1,43 @@
-<p>register works!</p>
+<div class="content">
+    <div class="col-md-12">
+        <div class="card-header">
+            <div class="card-header"><h5 class="title"></h5>REGISTER</div>
+            <div class="card-body">
+                <form [formGroup]="registerForm">
+                    <div class="mb-3">
+                        <label for="firstName">First Name</label>
+                        <div class="form-group">
+                            <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="First Name"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="lastName">Last Name</label>
+                        <div class="form-group">
+                            <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Last Name"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="firstName">E-mail</label>
+                        <div class="form-group">
+                            <input type="email" id="email" formControlName="email" class="form-control" placeholder="email"/>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="firstName">Password</label>
+                        <div class="form-group">
+                            <input type="password" id="password" formControlName="password" class="form-control" placeholder="password"/>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="register()" routerLink="/login">SING UP</button>
+            </div>
+        </div>
+    </div>
+</div>
