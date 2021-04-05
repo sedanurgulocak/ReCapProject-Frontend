@@ -12,6 +12,7 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { LoginGuard } from './guards/login.guard';
 
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path:"brands/getBrandDetail/:brandId", component:BrandUpdateComponent},
   {path:"colors/getColorDetail/:colorId", component:ColorUpdateComponent},
   {path:"cars/getSingleCarDetail/:carId", component:CarUpdateComponent},
-  {path:"login", component:LoginComponent}
+  {path:"login", component:LoginComponent},
+  {path:"register", component:RegisterComponent}
 
 
 ];
