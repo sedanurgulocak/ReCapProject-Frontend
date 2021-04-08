@@ -14,6 +14,7 @@ import { ColorUpdateComponent } from './components/color-update/color-update.com
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { UserComponent } from './components/user/user.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -34,7 +35,8 @@ const routes: Routes = [
   {path:"colors/getColorDetail/:colorId", component:ColorUpdateComponent},
   {path:"cars/getSingleCarDetail/:carId", component:CarUpdateComponent},
   {path:"login", component:LoginComponent},
-  {path:"register", component:RegisterComponent}
+  {path:"register", component:RegisterComponent},
+  {path:"profile", component:UserComponent}
 
 
 ];
