@@ -49,7 +49,6 @@ export class RentalComponent implements OnInit {
   }
 
   getCustomers(){
-    debugger;
     this.customerService.getCustomers().subscribe(response => {
       this.customers = response.data;
       console.log(response.data);
@@ -59,7 +58,6 @@ export class RentalComponent implements OnInit {
   getActiveCarDetail(carId: number){
      this.carService.getSingleCar(carId).subscribe((response) => {
        this.carDetails = response.data;
-       debugger;
        console.log(this.carDetails);
      });
    }
