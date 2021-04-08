@@ -11,4 +11,5 @@ export interface CarDetailDto{
     imagePath:string[];
     carImages:CarImage[];
     status:boolean;
+    findeksScore:number;
 }
