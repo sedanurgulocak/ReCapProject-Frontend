@@ -27,6 +27,24 @@ Click for the readme file of the backend of the car rental system  :memo:  [Back
 - JWT
 - Service
 
+## Pages
+- [Register Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#register-page)
+- [Login Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#login-page)
+- [Home Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#home-page)
+- [Car Detail Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#car-detail-page)
+- [Rental Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#rental-page)
+- [User Profile Update Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#user-profile-update-page)
+- [Car Filter](https://github.com/sedanurgulocak/ReCapProject-Frontend#car-filter)
+- [Car List Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#car-list-page)
+- [Brand List Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#brand-list-page)
+- [Color List Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#color-list-page)
+- [Car Add Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#car-add-page)
+- [Brand Add Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#brand-add-page)
+- [Color Add Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#color-add-page)
+- [Car Update Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#car-update-page)
+- [Brand Update Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#brand-update-page)
+- [Color Update Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#color-update-page)
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
