@@ -27,7 +27,7 @@ Click for the readme file of the backend of the car rental system  :memo:  [Back
 - JWT
 - Service
 
-### <details> <summary><b> :scroll: Pages </b></summary>
+<details> <summary><b> :scroll: Pages </b></summary>
   
 - [Register Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#register-page)
 - [Login Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#login-page)
