@@ -27,7 +27,8 @@ Click for the readme file of the backend of the car rental system  :memo:  [Back
 - JWT
 - Service
 
-## :scroll: Pages
+### <details> <summary><b> :scroll: Pages </b></summary>
+  
 - [Register Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#register-page)
 - [Login Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#login-page)
 - [Home Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#home-page)
@@ -43,7 +44,9 @@ Click for the readme file of the backend of the car rental system  :memo:  [Back
 - [Color Add Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#color-add-page)
 - [Car Update Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#car-update-page)
 - [Brand Update Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#brand-update-page)
-- [Color Update Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#color-update-page)
+- [Color Update Page](https://github.com/sedanurgulocak/ReCapProject-Frontend#color-update-page) <br/>
+
+</details>
 
 ## Code scaffolding
 
