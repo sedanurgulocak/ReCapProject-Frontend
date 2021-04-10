@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 :computer: You can reach the Backend project here. 	:star:  [ReCapProject-Backend](https://github.com/sedanurgulocak/ReCapProject)  :star: <br/>
 
 
-:art: Development continues for design
+:art: _Development continues for design_
 
 ## :balloon: Development server
 
